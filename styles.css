@@ -1971,6 +1971,33 @@ body.page-menu .bottom-nav__item.is-active {
   cursor: not-allowed;
 }
 
+.menu-gallery {
+  padding: 0 0 2.5rem;
+}
+
+.menu-gallery__inner {
+  display: grid;
+  gap: 1rem;
+  width: min(940px, calc(100% - 0.5rem));
+}
+
+.menu-sheet {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(221, 235, 255, 0.86));
+  box-shadow:
+    0 22px 60px rgba(26, 70, 164, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(26, 70, 164, 0.12);
+}
+
+.menu-sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .menu-book__status {
   display: grid;
   gap: 0.2rem;
@@ -2044,5 +2071,13 @@ body.page-menu .bottom-nav__item.is-active {
 
   .menu-hero__copy h1 {
     font-size: clamp(2.8rem, 13vw, 4.8rem);
+  }
+
+  .menu-gallery__inner {
+    width: 100%;
+  }
+
+  .menu-sheet {
+    border-radius: 22px;
   }
 }
