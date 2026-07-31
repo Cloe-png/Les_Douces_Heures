@@ -56,6 +56,162 @@
   }
 
   /* ---------- Filtres boutique (pages Cafés / Thés) ---------- */
+  if (document.body.classList.contains("page-cafes")) {
+    var cafeScrollTicking = false;
+
+    function updateCafeHeader() {
+      document.body.classList.toggle("is-scrolled", window.scrollY > 24);
+      cafeScrollTicking = false;
+    }
+
+    updateCafeHeader();
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (cafeScrollTicking) {
+          return;
+        }
+        cafeScrollTicking = true;
+        window.requestAnimationFrame(updateCafeHeader);
+      },
+      { passive: true }
+    );
+  }
+
+  var cafeSearchInput = document.querySelector("#cafe-search-input");
+  var cafeSearchClear = document.querySelector(".cafe-search__clear");
+  var cafeFilterGroups = document.querySelectorAll(".cafe-filters[data-filter-group]");
+  var cafeCards = document.querySelectorAll("[data-cafe-card]");
+  var cafeResults = document.querySelector("[data-cafe-results]");
+
+  if (cafeSearchInput && cafeFilterGroups.length && cafeCards.length) {
+    var cafeState = {
+      query: "",
+      type: "all",
+      origin: "all"
+    };
+
+    function normalizeText(value) {
+      return (value || "")
+        .toString()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/&/g, " et ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function normalizeTypeTokens(value) {
+      return normalizeText(value)
+        .replace(/\//g, " ")
+        .replace(/-/g, " ")
+        .split(/\s+/)
+        .filter(Boolean);
+    }
+
+    function setActiveChip(groupName, filterValue) {
+      var group = document.querySelector('.cafe-filters[data-filter-group="' + groupName + '"]');
+      if (!group) {
+        return;
+      }
+
+      group.querySelectorAll(".cafe-chip").forEach(function (chip) {
+        var isActive = chip.getAttribute("data-filter") === filterValue;
+        chip.classList.toggle("is-active", isActive);
+        chip.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    }
+
+    function updateCafeResults(count, total) {
+      if (!cafeResults) {
+        return;
+      }
+
+      if (count === 0) {
+        cafeResults.textContent = "Aucun café ne correspond à votre recherche.";
+        return;
+      }
+
+      cafeResults.textContent =
+        count +
+        " café" +
+        (count > 1 ? "s" : "") +
+        " affiché" +
+        (count > 1 ? "s" : "") +
+        " sur " +
+        total +
+        ".";
+    }
+
+    function applyCafeFilters() {
+      var visibleCount = 0;
+      var query = normalizeText(cafeState.query);
+
+      cafeCards.forEach(function (card) {
+        var cardTypes = normalizeTypeTokens(card.getAttribute("data-types") || card.getAttribute("data-type"));
+        var cardOrigin = normalizeText(card.getAttribute("data-origin"));
+        var cardText = normalizeText(
+          card.getAttribute("data-search") || card.getAttribute("data-name") || card.textContent
+        );
+        var filterTypes = normalizeTypeTokens(cafeState.type);
+        var matchesType =
+          cafeState.type === "all" ||
+          filterTypes.some(function (token) {
+            return cardTypes.indexOf(token) !== -1;
+          });
+        var matchesOrigin = cafeState.origin === "all" || cardOrigin === normalizeText(cafeState.origin);
+        var matchesQuery = !query || cardText.indexOf(query) !== -1;
+        var show = matchesType && matchesOrigin && matchesQuery;
+
+        card.classList.toggle("is-hidden", !show);
+        if (show) {
+          visibleCount += 1;
+        }
+      });
+
+      updateCafeResults(visibleCount, cafeCards.length);
+    }
+
+    cafeFilterGroups.forEach(function (group) {
+      group.querySelectorAll(".cafe-chip").forEach(function (chip) {
+        if (chip.getAttribute("aria-pressed") === null) {
+          chip.setAttribute("aria-pressed", chip.classList.contains("is-active") ? "true" : "false");
+        }
+
+        chip.addEventListener("click", function () {
+          var groupName = group.getAttribute("data-filter-group");
+          var value = chip.getAttribute("data-filter") || "all";
+
+          if (groupName === "type") {
+            cafeState.type = value;
+          } else if (groupName === "origin") {
+            cafeState.origin = value;
+          }
+
+          setActiveChip(groupName, value);
+          applyCafeFilters();
+        });
+      });
+    });
+
+    cafeSearchInput.addEventListener("input", function () {
+      cafeState.query = cafeSearchInput.value;
+      applyCafeFilters();
+    });
+
+    if (cafeSearchClear) {
+      cafeSearchClear.addEventListener("click", function () {
+        cafeState.query = "";
+        cafeSearchInput.value = "";
+        cafeSearchInput.focus();
+        applyCafeFilters();
+      });
+    }
+
+    applyCafeFilters();
+  }
+
   var chips = document.querySelectorAll(".chip[data-filter]");
   var cards = document.querySelectorAll(".product-card[data-cat]");
   if (chips.length && cards.length) {

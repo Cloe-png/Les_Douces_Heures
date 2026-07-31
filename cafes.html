@@ -1,12 +1,485 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cafés | Les Douces Heures</title>
+    <meta name="theme-color" content="#5b3f31" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-cafes">
-    <p>Rien ici pour l'instant</p>
+    <div class="site-shell cafe-shell">
+      <main class="cafe-page" id="contenu">
+        <header class="cafe-hero">
+          <div class="cafe-hero__inner container">
+            <p class="cafe-hero__eyebrow">Les Douces Heures</p>
+            <h1 class="cafe-hero__title">Cafés</h1>
+          </div>
+        </header>
+
+        <section class="cafe-toolbar" aria-label="Recherche et filtres">
+          <div class="container cafe-toolbar__inner">
+            <label class="cafe-search" for="cafe-search-input">
+              <span class="cafe-search__icon" aria-hidden="true">⌕</span>
+              <input
+                id="cafe-search-input"
+                class="cafe-search__input"
+                type="search"
+                placeholder="Rechercher un café, une origine..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button class="cafe-search__clear" type="button" aria-label="Effacer la recherche">
+                Effacer
+              </button>
+            </label>
+
+            <div class="cafe-filter-block">
+              <div class="cafe-filter-block__head">
+                <p>Type de café</p>
+              </div>
+              <div class="cafe-filters" data-filter-group="type" aria-label="Filtre par type de café">
+                <button class="cafe-chip is-active" type="button" data-filter="all">Tous</button>
+                <button class="cafe-chip" type="button" data-filter="doux">Doux</button>
+                <button class="cafe-chip" type="button" data-filter="aromatique">Arômatique</button>
+                <button class="cafe-chip" type="button" data-filter="corse">Corsé</button>
+                <button class="cafe-chip" type="button" data-filter="fruite">Fruité</button>
+                <button class="cafe-chip" type="button" data-filter="boise-charpente">
+                  Boisé / charpenté
+                </button>
+              </div>
+            </div>
+
+            <div class="cafe-filter-block">
+              <div class="cafe-filter-block__head">
+                <p>Pays / origine</p>
+              </div>
+              <div class="cafe-filters" data-filter-group="origin" aria-label="Filtre par pays">
+                <button class="cafe-chip is-active" type="button" data-filter="all">Toutes</button>
+                <button class="cafe-chip" type="button" data-filter="afrique">Afrique</button>
+                <button class="cafe-chip" type="button" data-filter="amerique-centrale">
+                  Amérique centrale
+                </button>
+                <button class="cafe-chip" type="button" data-filter="amerique-du-sud-caraibes">
+                  Amérique du Sud &amp; Caraïbes
+                </button>
+                <button class="cafe-chip" type="button" data-filter="asie-oceanie">
+                  Asie &amp; Océanie
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cafe-grid-wrap">
+          <div class="container">
+            <p class="cafe-results" data-cafe-results>10 cafés affichés</p>
+
+            <section class="cafe-section">
+              <div class="cafe-section__head">
+                <p class="cafe-section__kicker">Afrique</p>
+                <h2 class="cafe-section__title">Des cafés nets, intenses et souvent très expressifs.</h2>
+              </div>
+
+              <div class="cafe-grid">
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Éthiopie DJIMMAH"
+                  data-types="aromatique boise-charpente corse"
+                  data-origin="afrique"
+                  data-search="ethiopie moka djimmah arromatique boise charpente corse corps genereux arome puissant sauvage afrique"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Éthiopie DJIMMAH</div>
+                      <div class="cafe-card__price">7,90 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Arômatique, boisé/charpenté et corsé. Corps généreux, arôme puissant &amp;
+                        sauvage.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Arômatique</span>
+                        <span>Boisé / charpenté</span>
+                        <span>Corsé</span>
+                        <span>Afrique</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Kenya"
+                  data-types="aromatique fruite boise-charpente"
+                  data-origin="afrique"
+                  data-search="kenya ab aromatique fruite boise charpente corps genereux tasse typique complexe framboise rhubarbe cassis afrique"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Kenya</div>
+                      <div class="cafe-card__price">8,50 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Arômatique, fruité et boisé/charpenté. Corps généreux, tasse typée et
+                        complexe.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Arômatique</span>
+                        <span>Fruité</span>
+                        <span>Boisé / charpenté</span>
+                        <span>Afrique</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Sidamo"
+                  data-types="doux aromatique fruite"
+                  data-origin="afrique"
+                  data-search="sidamo doux aromatique fruite tasse douce fruitee parfum caracteristique fleur de jasmin afrique"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Sidamo</div>
+                      <div class="cafe-card__price">8,90 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Doux, arômatique et fruité. Tasse douce &amp; fruitée, parfum caractéristique
+                        de fleur de jasmin.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Doux</span>
+                        <span>Arômatique</span>
+                        <span>Fruité</span>
+                        <span>Afrique</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="cafe-section">
+              <div class="cafe-section__head">
+                <p class="cafe-section__kicker">Amérique centrale</p>
+                <h2 class="cafe-section__title">Des cafés structurés, fins et souvent très équilibrés.</h2>
+              </div>
+
+              <div class="cafe-grid">
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Guatemala"
+                  data-types="aromatique fruite"
+                  data-origin="amerique-centrale"
+                  data-search="guatemala shb strictly hard bean aromatique fruite corps puissant aromes epices poivres amerique centrale"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Guatemala</div>
+                      <div class="cafe-card__price">8,50 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Arômatique, fruité. Corps puissant, arômes épicés &amp; poivrés.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Arômatique</span>
+                        <span>Fruité</span>
+                        <span>Amérique centrale</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Honduras BIO"
+                  data-types="doux fruite"
+                  data-origin="amerique-centrale"
+                  data-search="honduras shg bio doux fruite strictly high grown cafe fruité belle finesse tasse douce suave amerique centrale"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Honduras BIO</div>
+                      <div class="cafe-card__price">8,90 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Doux et fruité. Un café fruité et une belle finesse, tasse douce &amp; suave.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Doux</span>
+                        <span>Fruité</span>
+                        <span>Amérique centrale</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Nicaragua"
+                  data-types="aromatique fruite"
+                  data-origin="amerique-centrale"
+                  data-search="nicaragua aromatique fruite corps legerement fruite aromes ble mur et epices amerique centrale"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Nicaragua</div>
+                      <div class="cafe-card__price">8,50 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Arômatique et fruité. Corps légèrement fruité, arômes de blé mûr &amp; épices.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Arômatique</span>
+                        <span>Fruité</span>
+                        <span>Amérique centrale</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="cafe-card cafe-card--wide"
+                  data-cafe-card
+                  data-name="Mélange italien 80/20"
+                  data-types="doux fruite aromatique"
+                  data-origin="amerique-centrale"
+                  data-search="nicaragua doux fruite aromatique tasse suave equilibree aromes fruites cacaotes caramel beurre sale amerique centrale"
+                >
+                  <div class="cafe-card__frame cafe-card__frame--wide">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Mélange italien 80/20</div>
+                      <div class="cafe-card__price">7,70 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Café réveil matin, mousse généreuse et veloutée, joliment colorée. Tasse
+                        corsée et puissante sans être amère.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Corsé</span>
+                        <span>Assemblage</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="cafe-section">
+              <div class="cafe-section__head">
+                <p class="cafe-section__kicker">Amérique du Sud &amp; Caraïbes</p>
+                <h2 class="cafe-section__title">Des cafés ronds, doux et faciles à intégrer en assemblage.</h2>
+              </div>
+
+              <div class="cafe-grid">
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Brésil"
+                  data-types="doux fruite aromatique"
+                  data-origin="amerique-du-sud-caraibes"
+                  data-search="bresil santos doux fruite aromatique tasse legere douce sans acidite ni amertume amerique du sud caraibes"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Brésil</div>
+                      <div class="cafe-card__price">7,90 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Doux, fruité et arômatique. Tasse légère et douce, sans acidité ni amertume.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Doux</span>
+                        <span>Fruité</span>
+                        <span>Arômatique</span>
+                        <span>Amérique du Sud &amp; Caraïbes</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="cafe-card"
+                  data-cafe-card
+                  data-name="Pérou décaféiné BIO"
+                  data-types="doux aromatique"
+                  data-origin="amerique-du-sud-caraibes"
+                  data-search="perou decafeine bio doux aromatique cafe doux et aromatique amerique du sud caraibes"
+                >
+                  <div class="cafe-card__frame">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Pérou décaféiné BIO</div>
+                      <div class="cafe-card__price">9,50 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Doux et arômatique.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Doux</span>
+                        <span>Arômatique</span>
+                        <span>Amérique du Sud &amp; Caraïbes</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="cafe-section">
+              <div class="cafe-section__head">
+                <p class="cafe-section__kicker">Asie &amp; Océanie</p>
+                <h2 class="cafe-section__title">Des cafés profonds, puissants et très persistants.</h2>
+              </div>
+
+              <div class="cafe-grid">
+                <article
+                  class="cafe-card cafe-card--wide"
+                  data-cafe-card
+                  data-name="Indonésie Sumatra"
+                  data-types="boise-charpente corse"
+                  data-origin="asie-oceanie"
+                  data-search="indonesie sumatra boise charpente corse corps puissant sans acidite parfums fruits rouges vanille asie oceanie"
+                >
+                  <div class="cafe-card__frame cafe-card__frame--wide">
+                    <div class="cafe-card__photo">Photo à venir</div>
+                    <div class="cafe-card__meta">
+                      <div class="cafe-card__name">Indonésie Sumatra</div>
+                      <div class="cafe-card__price">8,90 € / 250g</div>
+                      <div class="cafe-card__description">
+                        Boisé/charpenté et corsé. Corps puissant sans acidité, avec des parfums de
+                        fruits rouges &amp; de vanille.
+                      </div>
+                      <div class="cafe-card__tags">
+                        <span>Boisé / charpenté</span>
+                        <span>Corsé</span>
+                        <span>Asie &amp; Océanie</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="cafe-info">
+          <div class="container cafe-info__grid">
+            <article class="cafe-info-card cafe-info-card--wide">
+              <p class="cafe-info-card__kicker">Qu’est-ce que le grade SHB ?</p>
+              <h2>Une classification qui parle d’altitude, de densité et d’arômes.</h2>
+              <p>
+                Le grade SHB (Strictly Hard Bean) est une classification prestigieuse dans le monde
+                du café. Il est surtout appliqué dans certains pays d’Amérique centrale, comme le
+                Guatemala, le Costa Rica et le Honduras.
+              </p>
+              <p>
+                Ce label garantit en général des grains provenant de plantations situées à une
+                altitude d’au moins 1 200 mètres. À cette hauteur, la maturation des cerises de
+                café est plus lente, ce qui permet aux grains de devenir plus denses et plus
+                concentrés en arômes.
+              </p>
+              <p>
+                La dureté accrue des grains SHB favorise une meilleure extraction lors de la
+                torréfaction et produit souvent une tasse riche, nuancée, avec des notes fruitées,
+                florales et une acidité vive.
+              </p>
+            </article>
+
+            <article class="cafe-info-card">
+              <p class="cafe-info-card__kicker">Autres repères</p>
+              <h3>AA</h3>
+              <p>
+                Principalement utilisé au Kenya, ce grade identifie des grains de grande taille,
+                généralement cultivés en haute altitude. Les cafés AA sont reconnus pour leurs
+                arômes vifs, leurs notes fruitées et leur acidité équilibrée.
+              </p>
+            </article>
+
+            <article class="cafe-info-card">
+              <p class="cafe-info-card__kicker">Autres repères</p>
+              <h3>SHG</h3>
+              <p>
+                Strictly High Grown est un grade souvent employé pour des cafés cultivés à haute
+                altitude. Il garantit des grains denses et riches en saveurs complexes et nuancées.
+              </p>
+            </article>
+
+            <article class="cafe-info-card cafe-info-card--accent">
+              <p class="cafe-info-card__kicker">Le saviez-vous ?</p>
+              <h3>La torréfaction transforme un grain vert en bombe aromatique.</h3>
+              <p>
+                Ce processus libère plus de 800 composés aromatiques différents. Oui, 800. C’est
+                plus que dans le vin.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="container footer__grid">
+          <div>
+            <p class="footer__logo">Les Douces Heures</p>
+            <p>Brasserie et Torréfacteur à Bar-le-Duc</p>
+          </div>
+          <div>
+            <h3>Adresse</h3>
+            <p>35 Boulevard de la Rochelle<br />55000 Bar-le-Duc</p>
+          </div>
+          <div>
+            <h3>Horaires</h3>
+            <p>Lundi à Samedi : 07h30 - 18h30<br />Dimanche : Fermé</p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <p>06 34 53 02 97</p>
+            <p>03 29 45 41 98</p>
+            <div class="socials">
+              <a href="https://www.instagram.com/lesdoucesheures.bld/" target="_blank" rel="noreferrer"
+                >Instagram</a
+              >
+              <a href="https://www.facebook.com/Lesdoucesheuresbld" target="_blank" rel="noreferrer"
+                >Facebook</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Navigation principale">
+      <a href="index.html" class="bottom-nav__item">
+        <strong>Accueil</strong>
+      </a>
+      <a href="cafes.html" class="bottom-nav__item is-active">
+        <strong>Cafés</strong>
+      </a>
+      <a href="the.html" class="bottom-nav__item">
+        <strong>Thés</strong>
+      </a>
+      <a href="menu.html" class="bottom-nav__item">
+        <strong>Menu</strong>
+      </a>
+      <a href="index.html#contact" class="bottom-nav__item">
+        <strong>Infos</strong>
+      </a>
+    </nav>
+
+    <script src="script.js"></script>
   </body>
 </html>

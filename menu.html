@@ -4,11 +4,60 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Menu | Les Douces Heures</title>
+    <meta name="theme-color" content="#5b3f31" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
-  
-  
+  </head>
+  <body class="page-menu page-cafes">
+    <div class="site-shell">
+      <main class="cafe-page menu-page" id="contenu">
+        <header class="cafe-hero">
+          <div class="cafe-hero__inner container">
+            <p class="cafe-hero__eyebrow">Les Douces Heures</p>
+            <h1 class="cafe-hero__title">Menu</h1>
+          </div>
+        </header>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer__grid">
+          <div>
+            <p class="footer__logo">Les Douces Heures</p>
+            <p>Brasserie et Torréfacteur à Bar-le-Duc</p>
+          </div>
+          <div>
+            <h3>Adresse</h3>
+            <p>35 Boulevard de la Rochelle<br />55000 Bar-le-Duc</p>
+          </div>
+          <div>
+            <h3>Horaires</h3>
+            <p>Lundi à Samedi : 07h30 - 18h30<br />Dimanche : Fermé</p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <p>06 34 53 02 97</p>
+            <p>03 29 45 41 98</p>
+            <div class="socials">
+              <a href="https://www.instagram.com/lesdoucesheures.bld/" target="_blank" rel="noreferrer"
+                >Instagram</a
+              >
+              <a href="https://www.facebook.com/Lesdoucesheuresbld" target="_blank" rel="noreferrer"
+                >Facebook</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
     <nav class="bottom-nav" aria-label="Navigation principale">
-      <a href="#accueil" class="bottom-nav__item">
+      <a href="index.html" class="bottom-nav__item">
         <strong>Accueil</strong>
       </a>
       <a href="cafes.html" class="bottom-nav__item">
@@ -20,11 +69,12 @@
       <a href="menu.html" class="bottom-nav__item is-active">
         <strong>Menu</strong>
       </a>
-      <a href="#contact" class="bottom-nav__item">
+      <a href="index.html#contact" class="bottom-nav__item">
         <strong>Infos</strong>
       </a>
     </nav>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
-    <script defer src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

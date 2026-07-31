@@ -44,6 +44,10 @@ body.page-cafes {
   --page-bg: linear-gradient(180deg, #5b3f31 0%, #3f2a20 100%);
   --page-text: #f7efe7;
   --page-muted: rgba(247, 239, 231, 0.78);
+  --cafe-surface: rgba(255, 248, 240, 0.18);
+  --cafe-surface-strong: rgba(255, 248, 240, 0.3);
+  --cafe-border: rgba(255, 248, 240, 0.16);
+  --cafe-shadow: 0 22px 50px rgba(27, 17, 12, 0.26);
 }
 
 body.page-thes {
@@ -99,6 +103,536 @@ body.page-cafes .btn--primary {
 body.page-cafes .btn--secondary {
   color: #f7efe7;
   border-color: rgba(247, 239, 231, 0.24);
+}
+
+body.page-cafes .site-shell {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top left, rgba(240, 209, 178, 0.16), transparent 25%),
+    radial-gradient(circle at top right, rgba(147, 160, 139, 0.08), transparent 24%),
+    linear-gradient(180deg, #6a4b39 0%, #503427 40%, #3f2a20 100%);
+}
+
+body.page-cafes .cafe-page {
+  position: relative;
+  padding: 0 0 8.5rem;
+}
+
+body.page-cafes .cafe-hero {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 1.25rem 0 1rem;
+  background:
+    linear-gradient(180deg, rgba(63, 42, 32, 0.94) 0%, rgba(63, 42, 32, 0.82) 100%);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 248, 240, 0.08);
+  box-shadow: 0 12px 40px rgba(27, 17, 12, 0.18);
+  transition: padding 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+body.page-cafes.is-scrolled .cafe-hero {
+  padding: 0.65rem 0 0.55rem;
+  background:
+    linear-gradient(180deg, rgba(63, 42, 32, 0.98) 0%, rgba(63, 42, 32, 0.9) 100%);
+  box-shadow: 0 10px 28px rgba(27, 17, 12, 0.24);
+}
+
+body.page-cafes .cafe-hero__inner {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+}
+
+body.page-cafes .cafe-hero__eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 231, 0.68);
+}
+
+body.page-cafes .cafe-hero__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+  font-weight: 600;
+  color: #fff7ef;
+  transform-origin: center top;
+  transition: font-size 240ms ease, letter-spacing 240ms ease, transform 240ms ease;
+}
+
+body.page-cafes.is-scrolled .cafe-hero__title {
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  letter-spacing: -0.04em;
+  transform: translateY(-1px);
+}
+
+body.page-cafes .cafe-hero__lead {
+  max-width: 50rem;
+  margin: 0;
+  color: rgba(247, 239, 231, 0.78);
+  line-height: 1.8;
+}
+
+body.page-cafes .cafe-toolbar {
+  padding: 1.2rem 0 0.8rem;
+}
+
+body.page-cafes .cafe-toolbar__inner {
+  display: grid;
+  gap: 1rem;
+}
+
+body.page-cafes .cafe-search {
+  min-height: 76px;
+  padding: 0.6rem 0.8rem 0.6rem 1.05rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 250, 244, 0.98), rgba(246, 236, 225, 0.94));
+  border: 1px solid rgba(77, 52, 40, 0.08);
+  box-shadow: 0 18px 40px rgba(27, 17, 12, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: #453126;
+  font-weight: 600;
+}
+
+body.page-cafes .cafe-search:focus-within {
+  box-shadow:
+    0 18px 40px rgba(27, 17, 12, 0.12),
+    0 0 0 4px rgba(240, 209, 178, 0.28);
+}
+
+body.page-cafes .cafe-search__icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(77, 52, 40, 0.08);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+body.page-cafes .cafe-search__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 52px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #453126;
+  font: inherit;
+}
+
+body.page-cafes .cafe-search__input::placeholder {
+  color: rgba(69, 49, 38, 0.62);
+}
+
+body.page-cafes .cafe-search__clear {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid rgba(77, 52, 40, 0.08);
+  border-radius: 999px;
+  background: rgba(77, 52, 40, 0.06);
+  color: #5f4434;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+body.page-cafes .cafe-search__clear:hover {
+  transform: translateY(-1px);
+  background: rgba(77, 52, 40, 0.1);
+}
+
+body.page-cafes .cafe-filter-block {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem 1rem 1.05rem;
+  border-radius: 28px;
+  background: rgba(255, 248, 240, 0.08);
+  border: 1px solid rgba(255, 248, 240, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.page-cafes .cafe-filter-block__head p {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 231, 0.72);
+}
+
+body.page-cafes .cafe-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+body.page-cafes .cafe-chip {
+  min-height: 42px;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(255, 248, 240, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 248, 240, 0.1);
+  color: #f8efe5;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(77, 52, 40, 0.06);
+  transition: transform 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+body.page-cafes .cafe-chip.is-active {
+  background: linear-gradient(180deg, #f6eadf, #e9d5bf);
+  color: #4d3428;
+  border-color: transparent;
+}
+
+body.page-cafes .cafe-grid-wrap {
+  padding: 1rem 0 0;
+}
+
+body.page-cafes .cafe-results {
+  margin: 0 0 0.9rem;
+  color: rgba(247, 239, 231, 0.78);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+body.page-cafes .cafe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.35rem;
+}
+
+body.page-cafes .cafe-card {
+  min-width: 0;
+}
+
+body.page-cafes .cafe-card--wide {
+  grid-column: span 1;
+}
+
+body.page-cafes .cafe-card__frame {
+  min-height: 290px;
+  padding: 1rem;
+  border-radius: 38px;
+  background:
+    linear-gradient(180deg, rgba(121, 92, 74, 0.92), rgba(90, 61, 47, 0.92)),
+    #6a4b39;
+  box-shadow: var(--cafe-shadow);
+  border: 1px solid rgba(255, 248, 240, 0.12);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0.9rem;
+}
+
+body.page-cafes .cafe-card__frame--wide {
+  min-height: 300px;
+}
+
+body.page-cafes .cafe-card__photo {
+  border-radius: 30px;
+  border: 8px solid rgba(61, 41, 33, 0.55);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 248, 240, 0.9), rgba(255, 248, 240, 0.7) 35%, rgba(255, 248, 240, 0.32) 70%),
+    linear-gradient(180deg, #f5ede4, #e4d2bf);
+  color: #4d3428;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  min-height: 180px;
+  padding: 1rem;
+}
+
+body.page-cafes .cafe-card__meta {
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+  color: #fff7ef;
+}
+
+body.page-cafes .cafe-card__name {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 248, 240, 0.96);
+  color: #4d3428;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(27, 17, 12, 0.12);
+}
+
+body.page-cafes .cafe-card__price {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(240, 209, 178, 0.2);
+  border: 1px solid rgba(255, 248, 240, 0.14);
+  color: #fff7ef;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+body.page-cafes .cafe-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+body.page-cafes .cafe-card__tags span {
+  min-height: 30px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 248, 240, 0.12);
+  border: 1px solid rgba(255, 248, 240, 0.18);
+  color: rgba(255, 248, 240, 0.96);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+body.page-cafes .cafe-card.is-hidden {
+  display: none;
+}
+
+body.page-cafes .cafe-section {
+  margin-top: 2rem;
+}
+
+body.page-cafes .cafe-section__head {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+body.page-cafes .cafe-section__kicker,
+body.page-cafes .cafe-info-card__kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 231, 0.7);
+}
+
+body.page-cafes .cafe-section__title {
+  margin: 0;
+  color: #fff7ef;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
+
+body.page-cafes .cafe-card__description {
+  color: rgba(247, 239, 231, 0.8);
+  text-align: center;
+  line-height: 1.7;
+  font-size: 0.96rem;
+}
+
+body.page-cafes .cafe-info {
+  padding: 1.4rem 0 2rem;
+}
+
+body.page-cafes .cafe-info__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+body.page-cafes .cafe-info-card {
+  padding: 1.35rem 1.35rem 1.5rem;
+  border-radius: 30px;
+  background: rgba(255, 248, 240, 0.1);
+  border: 1px solid rgba(255, 248, 240, 0.12);
+  box-shadow: var(--cafe-shadow);
+  color: #fff7ef;
+}
+
+body.page-cafes .cafe-info-card--wide {
+  grid-column: span 2;
+}
+
+body.page-cafes .cafe-info-card--accent {
+  background:
+    linear-gradient(180deg, rgba(240, 209, 178, 0.18), rgba(255, 248, 240, 0.08)),
+    rgba(255, 248, 240, 0.08);
+}
+
+body.page-cafes .cafe-info-card h2,
+body.page-cafes .cafe-info-card h3 {
+  margin: 0.3rem 0 0.8rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
+
+body.page-cafes .cafe-info-card p {
+  margin: 0 0 0.8rem;
+  line-height: 1.8;
+  color: rgba(247, 239, 231, 0.82);
+}
+
+body.page-the.page-cafes {
+  --page-bg:
+    radial-gradient(circle at top left, rgba(150, 184, 156, 0.22), transparent 26%),
+    radial-gradient(circle at top right, rgba(39, 142, 56, 0.12), transparent 24%),
+    linear-gradient(180deg, #5f7c65 0%, #3f5a44 44%, #2d4a31 100%);
+  --page-text: #f4fbf4;
+  --page-muted: rgba(244, 251, 244, 0.78);
+  --cafe-surface: rgba(255, 255, 255, 0.14);
+  --cafe-surface-strong: rgba(255, 255, 255, 0.22);
+  --cafe-border: rgba(255, 255, 255, 0.15);
+  --cafe-shadow: 0 22px 50px rgba(17, 33, 19, 0.24);
+  color: var(--page-text, var(--text));
+}
+
+body.page-the.page-cafes .site-shell {
+  background:
+    radial-gradient(circle at top left, rgba(150, 184, 156, 0.28), transparent 24%),
+    radial-gradient(circle at top right, rgba(39, 142, 56, 0.16), transparent 24%),
+    linear-gradient(180deg, #5f7c65 0%, #47624d 40%, #2d4a31 100%);
+}
+
+body.page-the.page-cafes .cafe-hero {
+  background:
+    linear-gradient(180deg, rgba(45, 74, 49, 0.96) 0%, rgba(45, 74, 49, 0.84) 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.page-the.page-cafes.is-scrolled .cafe-hero {
+  background:
+    linear-gradient(180deg, rgba(45, 74, 49, 0.98) 0%, rgba(45, 74, 49, 0.9) 100%);
+}
+
+body.page-the.page-cafes .cafe-hero__eyebrow,
+body.page-the.page-cafes .cafe-hero__lead,
+body.page-the.page-cafes .cafe-results,
+body.page-the.page-cafes .cafe-section__kicker,
+body.page-the.page-cafes .cafe-info-card__kicker {
+  color: rgba(244, 251, 244, 0.76);
+}
+
+body.page-the.page-cafes .cafe-hero__title {
+  color: #f7fff7;
+}
+
+body.page-the.page-cafes .cafe-search {
+  background: linear-gradient(180deg, rgba(247, 255, 247, 0.96), rgba(231, 242, 233, 0.94));
+  border-color: rgba(39, 142, 56, 0.12);
+  color: #24462a;
+}
+
+body.page-the.page-cafes .cafe-search__icon {
+  background: rgba(39, 142, 56, 0.12);
+  color: #278e38;
+}
+
+body.page-the.page-cafes .cafe-search__input,
+body.page-the.page-cafes .cafe-search__input::placeholder {
+  color: #2f4e34;
+}
+
+body.page-the.page-cafes .cafe-search__clear {
+  background: rgba(39, 142, 56, 0.1);
+  border-color: rgba(39, 142, 56, 0.12);
+  color: #2f4e34;
+}
+
+body.page-the.page-cafes .cafe-filter-block {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.page-the.page-cafes .cafe-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f2f8f2;
+}
+
+body.page-the.page-cafes .cafe-chip.is-active {
+  background: linear-gradient(180deg, #c5dac7, #a6c5ab);
+  color: #234227;
+}
+
+body.page-the.page-cafes .cafe-card__frame {
+  background:
+    linear-gradient(180deg, rgba(92, 123, 99, 0.92), rgba(63, 90, 68, 0.92)),
+    #5f7c65;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.page-the.page-cafes .cafe-card__photo {
+  border-color: rgba(37, 65, 41, 0.5);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.94), rgba(214, 232, 216, 0.78) 35%, rgba(166, 197, 171, 0.34) 70%),
+    linear-gradient(180deg, #f3faf4, #dce8dd);
+  color: #24462a;
+}
+
+body.page-the.page-cafes .cafe-card__name {
+  background: rgba(247, 255, 247, 0.96);
+  color: #234227;
+}
+
+body.page-the.page-cafes .cafe-card__price {
+  background: rgba(39, 142, 56, 0.16);
+  color: #f7fff7;
+}
+
+body.page-the.page-cafes .cafe-card__tags span {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f4fbf4;
+}
+
+body.page-the.page-cafes .cafe-card__description,
+body.page-the.page-cafes .cafe-info-card p {
+  color: rgba(244, 251, 244, 0.84);
+}
+
+body.page-the.page-cafes .cafe-info-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.page-the.page-cafes .cafe-info-card--accent {
+  background:
+    linear-gradient(180deg, rgba(150, 184, 156, 0.2), rgba(255, 255, 255, 0.08)),
+    rgba(255, 255, 255, 0.08);
+}
+
+body.page-the.page-cafes .bottom-nav {
+  background: rgba(247, 255, 247, 0.82);
+  border-color: rgba(39, 142, 56, 0.1);
+}
+
+body.page-the.page-cafes .bottom-nav__item {
+  color: rgba(35, 66, 39, 0.78);
+}
+
+body.page-the.page-cafes .bottom-nav__item:hover,
+body.page-the.page-cafes .bottom-nav__item.is-active {
+  background: linear-gradient(180deg, rgba(39, 142, 56, 0.14), rgba(39, 142, 56, 0.08));
+  color: #278e38;
 }
 
 img {
@@ -812,6 +1346,12 @@ a {
   box-shadow: 0 16px 40px rgba(55, 38, 25, 0.14);
 }
 
+body.page-cafes .bottom-nav {
+  background: rgba(255, 248, 240, 0.82);
+  border: 1px solid rgba(77, 52, 40, 0.08);
+  box-shadow: 0 16px 40px rgba(27, 17, 12, 0.18);
+}
+
 .bottom-nav__item {
   display: grid;
   justify-items: center;
@@ -835,6 +1375,16 @@ a {
   background: rgba(77, 52, 40, 0.12);
   color: var(--coffee);
   transform: translateY(-1px);
+}
+
+body.page-cafes .bottom-nav__item {
+  color: rgba(77, 52, 40, 0.78);
+}
+
+body.page-cafes .bottom-nav__item:hover,
+body.page-cafes .bottom-nav__item.is-active {
+  background: linear-gradient(180deg, rgba(77, 52, 40, 0.12), rgba(77, 52, 40, 0.08));
+  color: #4d3428;
 }
 
 .reveal {
@@ -961,6 +1511,63 @@ a {
   .footer {
     padding-bottom: 8rem;
   }
+
+  body.page-cafes .cafe-page {
+    padding-bottom: 9rem;
+  }
+
+  body.page-cafes .cafe-hero {
+    padding-top: 0.9rem;
+  }
+
+  body.page-cafes .cafe-hero__title {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  body.page-cafes.is-scrolled .cafe-hero__title {
+    font-size: clamp(1.7rem, 7.2vw, 2.2rem);
+  }
+
+  body.page-cafes .cafe-search {
+    min-height: 68px;
+    padding-inline: 1rem;
+  }
+
+  body.page-cafes .cafe-search__input {
+    height: 48px;
+  }
+
+  body.page-cafes .cafe-search__clear {
+    min-height: 38px;
+    padding-inline: 0.8rem;
+  }
+
+  body.page-cafes .cafe-filter-block {
+    padding: 0.9rem;
+    border-radius: 24px;
+  }
+
+  body.page-cafes .cafe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.page-cafes .cafe-info__grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.page-cafes .cafe-info-card--wide {
+    grid-column: auto;
+  }
+
+  body.page-cafes .cafe-card__frame,
+  body.page-cafes .cafe-card__frame--wide {
+    min-height: 260px;
+    border-radius: 30px;
+  }
+
+  body.page-cafes .cafe-card__photo {
+    min-height: 165px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -999,6 +1606,14 @@ body.page-menu .reveal {
   width: min(1320px, calc(100% - 1.5rem));
   margin: 0 auto;
   padding: 1.1rem 0 4rem;
+}
+
+body.page-menu .menu-book-section {
+  padding: 0 0 2rem;
+}
+
+body.page-menu .menu-book {
+  margin-top: 0.35rem;
 }
 
 .menu-hero {
