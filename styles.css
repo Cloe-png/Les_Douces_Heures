@@ -1586,11 +1586,20 @@ body.page-cafes .bottom-nav__item.is-active {
 }
 
 body.page-menu {
+  --menu-sky: #84ace7;
+  --menu-ice: #ddebff;
+  --menu-blue: #1a46a4;
   --page-bg:
-    radial-gradient(circle at top left, rgba(217, 199, 173, 0.28), transparent 24%),
-    radial-gradient(circle at right top, rgba(147, 160, 139, 0.2), transparent 28%),
-    linear-gradient(180deg, #f7f1e7 0%, #efe5d8 100%);
-  color: var(--text);
+    radial-gradient(circle at top left, rgba(132, 172, 231, 0.34), transparent 24%),
+    radial-gradient(circle at right top, rgba(26, 70, 164, 0.18), transparent 28%),
+    linear-gradient(180deg, #eef5ff 0%, #ddebff 100%);
+  --page-text: #12306f;
+  --page-muted: rgba(26, 70, 164, 0.78);
+  --menu-surface: rgba(221, 235, 255, 0.75);
+  --menu-surface-strong: rgba(132, 172, 231, 0.2);
+  --menu-border: rgba(26, 70, 164, 0.14);
+  --menu-shadow: 0 24px 60px rgba(26, 70, 164, 0.18);
+  color: var(--page-text);
 }
 
 body.page-menu .site-shell {
@@ -1614,6 +1623,13 @@ body.page-menu .menu-book-section {
 
 body.page-menu .menu-book {
   margin-top: 0.35rem;
+  background:
+    linear-gradient(135deg, rgba(132, 172, 231, 0.28), rgba(26, 70, 164, 0.14)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(221, 235, 255, 0.72));
+  box-shadow:
+    0 30px 80px rgba(26, 70, 164, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(26, 70, 164, 0.12);
 }
 
 .menu-hero {
@@ -1648,10 +1664,10 @@ body.page-menu .menu-book {
   min-height: 52px;
   padding: 0.95rem 1.1rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(77, 52, 40, 0.08);
+  background: rgba(221, 235, 255, 0.82);
+  border: 1px solid rgba(26, 70, 164, 0.14);
   box-shadow: var(--shadow-soft);
-  color: var(--coffee);
+  color: var(--menu-blue);
   font-weight: 800;
 }
 
@@ -1661,11 +1677,11 @@ body.page-menu .menu-book {
   padding: 1rem;
   border-radius: 36px;
   background:
-    linear-gradient(135deg, rgba(77, 52, 40, 0.22), rgba(255, 255, 255, 0.18)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.56));
+    linear-gradient(135deg, rgba(132, 172, 231, 0.32), rgba(26, 70, 164, 0.14)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(221, 235, 255, 0.74));
   box-shadow:
-    0 30px 80px rgba(55, 38, 25, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    0 30px 80px rgba(26, 70, 164, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(14px);
 }
 
@@ -1675,8 +1691,8 @@ body.page-menu .menu-book {
   border-radius: 28px;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(44, 29, 22, 0.18), transparent 10%, transparent 90%, rgba(44, 29, 22, 0.16)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 34%, rgba(44, 29, 22, 0.05));
+    linear-gradient(90deg, rgba(26, 70, 164, 0.18), transparent 10%, transparent 90%, rgba(26, 70, 164, 0.14)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 34%, rgba(26, 70, 164, 0.05));
   opacity: 0.9;
 }
 
@@ -1720,11 +1736,11 @@ body.page-menu .menu-book {
   border-radius: 24px;
   aspect-ratio: var(--menu-page-ratio, 0.74);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 236, 225, 0.86)),
-    #f8f3ea;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(221, 235, 255, 0.88)),
+    #ddebff;
   box-shadow:
-    0 18px 40px rgba(55, 38, 25, 0.16),
-    inset 0 0 0 1px rgba(77, 52, 40, 0.06);
+    0 18px 40px rgba(26, 70, 164, 0.12),
+    inset 0 0 0 1px rgba(26, 70, 164, 0.08);
   transform-style: preserve-3d;
 }
 
@@ -1744,8 +1760,8 @@ body.page-menu .menu-book {
   justify-content: center;
   padding: clamp(0.5rem, 1.6vw, 0.95rem);
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(241, 232, 220, 0.88));
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.94), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(221, 235, 255, 0.9));
 }
 
 .menu-book__paper::before {
@@ -1755,8 +1771,8 @@ body.page-menu .menu-book {
   background:
     repeating-linear-gradient(
       135deg,
-      rgba(77, 52, 40, 0.018) 0,
-      rgba(77, 52, 40, 0.018) 2px,
+      rgba(26, 70, 164, 0.018) 0,
+      rgba(26, 70, 164, 0.018) 2px,
       transparent 2px,
       transparent 8px
     );
@@ -1769,8 +1785,8 @@ body.page-menu .menu-book {
   position: absolute;
   inset: 0;
   box-shadow:
-    inset 18px 0 30px -22px rgba(44, 29, 22, 0.4),
-    inset -18px 0 30px -22px rgba(44, 29, 22, 0.4);
+    inset 18px 0 30px -22px rgba(26, 70, 164, 0.25),
+    inset -18px 0 30px -22px rgba(26, 70, 164, 0.25);
   pointer-events: none;
 }
 
@@ -1790,7 +1806,7 @@ body.page-menu .menu-book {
   max-height: 100%;
   border-radius: 14px;
   background: #fff;
-  box-shadow: 0 14px 28px rgba(55, 38, 25, 0.08);
+  box-shadow: 0 14px 28px rgba(26, 70, 164, 0.1);
 }
 
 .menu-book__flip {
@@ -1805,7 +1821,7 @@ body.page-menu .menu-book {
 }
 
 .menu-book__flip .menu-book__paper {
-  box-shadow: 0 24px 50px rgba(55, 38, 25, 0.18);
+  box-shadow: 0 24px 50px rgba(26, 70, 164, 0.18);
 }
 
 .menu-book__flip.is-next {
@@ -1842,17 +1858,17 @@ body.page-menu .menu-book {
   border: 0;
   border-radius: 50%;
   background:
-    linear-gradient(180deg, #6a4b39, #4d3428);
+    linear-gradient(180deg, #84ace7, #1a46a4);
   color: #fff;
   font-size: 2rem;
   cursor: pointer;
-  box-shadow: 0 16px 34px rgba(77, 52, 40, 0.24);
+  box-shadow: 0 16px 34px rgba(26, 70, 164, 0.28);
   transition: transform 200ms ease, opacity 200ms ease, box-shadow 200ms ease;
 }
 
 .menu-arrow:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(77, 52, 40, 0.28);
+  box-shadow: 0 20px 40px rgba(26, 70, 164, 0.34);
 }
 
 .menu-arrow:disabled {
@@ -1864,7 +1880,7 @@ body.page-menu .menu-book {
   display: grid;
   gap: 0.2rem;
   text-align: center;
-  color: var(--coffee);
+  color: var(--menu-blue);
 }
 
 .menu-book__status strong {
@@ -1877,7 +1893,7 @@ body.page-menu .menu-book {
 .menu-book__hint,
 .menu-book__error {
   font-size: 0.95rem;
-  color: var(--muted);
+  color: rgba(26, 70, 164, 0.72);
 }
 
 .menu-book__hint {
@@ -1888,7 +1904,39 @@ body.page-menu .menu-book {
 .menu-book__error {
   margin: 0.85rem 0 0;
   text-align: center;
-  color: #8a3d29;
+  color: #1a46a4;
+}
+
+body.page-menu .footer {
+  background: linear-gradient(180deg, rgba(221, 235, 255, 0.7), rgba(255, 255, 255, 0.9));
+  border-top: 1px solid rgba(26, 70, 164, 0.12);
+}
+
+body.page-menu .footer h3,
+body.page-menu .footer__logo,
+body.page-menu .footer p,
+body.page-menu .footer__bottom a {
+  color: var(--page-text);
+}
+
+body.page-menu .socials a {
+  color: var(--menu-blue);
+}
+
+body.page-menu .bottom-nav {
+  background: rgba(221, 235, 255, 0.9);
+  border: 1px solid rgba(26, 70, 164, 0.12);
+  box-shadow: 0 16px 40px rgba(26, 70, 164, 0.18);
+}
+
+body.page-menu .bottom-nav__item {
+  color: rgba(26, 70, 164, 0.78);
+}
+
+body.page-menu .bottom-nav__item:hover,
+body.page-menu .bottom-nav__item.is-active {
+  background: linear-gradient(180deg, rgba(132, 172, 231, 0.2), rgba(26, 70, 164, 0.1));
+  color: var(--menu-blue);
 }
 
 @media (max-width: 1100px) {
