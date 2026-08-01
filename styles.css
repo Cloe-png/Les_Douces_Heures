@@ -586,6 +586,15 @@ body.page-the.page-cafes .cafe-card__photo {
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.94), rgba(214, 232, 216, 0.78) 35%, rgba(166, 197, 171, 0.34) 70%),
     linear-gradient(180deg, #f3faf4, #dce8dd);
   color: #24462a;
+  overflow: hidden;
+  position: relative;
+}
+
+body.page-the.page-cafes .cafe-card__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 body.page-the.page-cafes .cafe-card__name {
